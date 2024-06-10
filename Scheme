@@ -1,0 +1,16 @@
+from pydantic import BaseModel
+from typing import List
+
+class Document(BaseModel):
+    id: int
+    name: str
+    embedding: List[float]
+
+    class Config:
+        orm_mode = True
+
+class ChatQuery(BaseModel):
+    queries: List[str]
+
+class ChatResponse(BaseModel):
+    responses: List[str]
